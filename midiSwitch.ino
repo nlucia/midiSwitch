@@ -157,7 +157,7 @@ typedef enum {
   ST_BRIGHTNESS,
   ST_INFO,
   
-  OPTIONSENUM_LENGTH // CAMBIAR?
+  OPTIONSENUM_LENGTH
 } optionsEnum;
 
 const char optionName00[] PROGMEM = "Canal MIDI";
@@ -192,7 +192,7 @@ byte _settingsValue;
 byte _tempSettingsValue;
 
 /*
- * 
+ * Global instances
  */
 SimpleTimer _timer;
 
@@ -215,6 +215,7 @@ State stateEditOption(&onEditOptionEnter, &onEditOptionExit);
 State stateReset(&onResetEnter, NULL);
 
 Fsm fsm(&stateSplash); 
+
 
 //buttons
 void resetButtons() {
@@ -357,6 +358,7 @@ void midiLearnPC(byte channel, byte number) {
     _tempPatchNumber = number;
     lcdPrintBigNumber(_tempPatchNumber);
 }
+
 /*
  * SETTINGS
  */
